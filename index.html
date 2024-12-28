@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>扫雷游戏菜单</title>
+  <link rel="stylesheet" href="./css/menu.css">
+</head>
+<body>
+  <div class="menu-container">
+    <h1 class="title">扫雷游戏</h1>
+    <div class="mode-selection">
+      <button class="mode-button" onclick="selectMode('classic')">经典模式</button>
+      <button class="mode-button" onclick="selectMode('multiplayer')">双人模式</button>
+      <button class="ban-mode-button mode-button">大乱斗模式</button>
+    </div>
+
+    <div id="multiplayer-options" class="multiplayer-options hidden">
+      <label>输入房间号：</label>
+      <input type="text" id="room-id-input">
+    </div>
+
+    <div id="classic-options" class="difficulty-options hidden">
+      <label>选择难度：</label>
+      <select id="difficulty-select">
+        <option value="easy">简单</option>
+        <option value="normal">中等</option>
+        <option value="hard">困难</option>
+      </select>
+    </div>
+    <button id="start-button" class="start-button" onclick="startGame()">开始游戏</button>
+  </div>
+
+  <script>
+    let selectedMode = null;
+
+    function selectMode(mode) {
+      selectedMode = mode;
+      document.getElementById('classic-options').classList.toggle('hidden', mode !== 'classic');
+      document.getElementById('multiplayer-options').classList.toggle('hidden', mode !=='multiplayer');
+    }
+
+    function startGame() {
+      let difficulty = '';
+      if (selectedMode === 'classic') {
+        difficulty = document.getElementById('difficulty-select').value;
+        const url = `game.html?mode=${selectedMode}&difficulty=${difficulty}`;
+        window.location.href = url;
+      }else if (selectedMode ==='multiplayer') {
+
+      }
+    }
+  </script>
+</body>
+</html>

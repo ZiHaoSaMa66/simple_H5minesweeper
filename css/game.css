@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+
+  .game-container {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    gap: 2px;
+  }
+
+  .cell {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .cell.mine {
+    /* background-color: red; */
+    background-image: url(../img/boom.png);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cell.revealed {
+    background-color: #e0e0e0;
+    cursor: default;
+}
+
+.cell.flag {
+    /* background-color: rgb(176, 66, 240); */
+    background-image: url(../img/flag.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
